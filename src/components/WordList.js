@@ -1,7 +1,8 @@
 import React from "react";
 import CharPlate from "./CharPlate.js";
 
-export default function WordList({ word, selectedPos, setSelectedPos }) {
+function WordList({ word, selectedPos, setSelectedPos }) {
+  console.log("now, " + word + " is being rendered. ");
   return (
     <div>
       {console.log(word)}
@@ -18,3 +19,5 @@ export default function WordList({ word, selectedPos, setSelectedPos }) {
     </div>
   );
 }
+
+export default React.memo(WordList);

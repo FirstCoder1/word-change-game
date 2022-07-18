@@ -1,6 +1,7 @@
 import "./App.css";
 import WordList from "./components/WordList";
-import { useState, useEffect } from "react";
+import Test from "./components/Test";
+import { useState, useEffect, useCallback } from "react";
 function App() {
   const wordList = [
     "apple",
