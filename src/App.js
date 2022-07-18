@@ -1,6 +1,5 @@
 import "./App.css";
 import WordList from "./components/WordList";
-import Test from "./components/Test";
 import { useState, useEffect, useCallback } from "react";
 function App() {
   const wordList = [
@@ -56,10 +55,10 @@ function App() {
     setResult("Result: " + word1.join("") + "//" + word2.join(""));
   };
 
-  const restartHandler = () => {
+  const restartHandler = useCallback(() => {
     getRandomWord();
     resetResult();
-  };
+  }, []);
 
   return (
     <div className="App">
@@ -68,12 +67,14 @@ function App() {
           word={word1}
           selectedPos={selectedPos1}
           setSelectedPos={setSelectedPos1}
+          restartHandler={restartHandler}
         />
         <button onClick={swapHandler}>Swap</button>
         <WordList
           word={word2}
           selectedPos={selectedPos2}
           setSelectedPos={setSelectedPos2}
+          restartHandler={restartHandler}
         />
       </div>
       <p className="result">{result}</p>
